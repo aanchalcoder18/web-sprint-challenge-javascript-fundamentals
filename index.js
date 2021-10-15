@@ -62,10 +62,13 @@ const zooAnimals = [
   */
 
   function animalNames(){
-    // const displayNames = [];
-    // displayNames.push(`Name: ${item.animal_name}, Scientific: ${item.scientific_name}`);
+    let array = [];
+    zooAnimals.forEach(item =>{
+      array.push(`name: ${item.animal_name}, scientific: ${item.scientific_name}`);
+        });
+        return array;
   }
-  // console.log(animalNames());
+  console.log(animalNames(zooAnimals));
 
   /* 🦁🦁🦁 Request 2: .map() 🦁🦁🦁
   The zoo needs a list of all their animal's names converted to lower case. 
@@ -73,10 +76,10 @@ const zooAnimals = [
   For example: ['jackal, asiatic', .....]
   */
 
-  function lowerCaseNames(/*Your Code Here*/){
-    /*Your Code Here*/
+  function lowerCaseNames(zooData){
+    return zooData.map(i => i.animal_name.toLowerCase());
   }
-  
+  console.log(lowerCaseNames(zooAnimals));
   
   /* 🦁🦁🦁 Request 3: .filter() 🦁🦁🦁
   The zoo is concerned about animals with a lower population count. 
@@ -189,13 +192,23 @@ function CuboidMaker(properties){
 // 🦄🦄🦄 Topic 4: Classes 🦄🦄🦄 //
 //🦄🦄🦄 1. Take your prototypes from above and refactor into class syntax. Please rename your class CuboidMakerTwo and your object cuboidTwo 🦄🦄🦄
 class CuboidMakerTwo{
-
+  constructor(properties){
+    this.length = properties.length;
+    this.width = properties.width;
+    this.height = properties.height;
+  }
+  volume () {
+    return this.length * this.width * this.height;
+  }
+  surfaceArea () {
+    return 2 * ((this.length * this.width) + (this.length * this.height) + (this.width * this.height));
+  }
 }
 
 
 //🦄🦄🦄 Test your volume and surfaceArea methods by uncommenting the logs below: 🦄🦄🦄
-// console.log(cuboidTwo.volume()); // 100
-// console.log(cuboidTwo.surfaceArea()); // 130
+  //console.log(cuboidTwo.volume()); // 100
+  //console.log(cuboidTwo.surfaceArea()); // 130
 
 
 
